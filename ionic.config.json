@@ -1,0 +1,8 @@
+{
+  "name": "random-rewards",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue",
+  "id": "7ef10dc9"
+}

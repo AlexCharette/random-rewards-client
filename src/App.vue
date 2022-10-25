@@ -13,6 +13,9 @@ export default defineComponent({
   components: {
     IonApp,
     IonRouterOutlet
+  },
+  mounted() { 
+    this.$store.dispatch('rewards/loadRewards')
   }
 });
 </script>

@@ -15,35 +15,27 @@
 
       <ion-list>
         <reward-item 
-          v-for="reward in rewards" 
-          name=""
-          icon=""
+          v-for="reward in rewards"
+          :key="reward.name"
+          :name="reward.name"
+          :icon="reward.icon"
         />
       </ion-list>
-
-      <ExploreContainer name="Rewards" />
     </ion-content>
   </ion-page>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/vue'
+import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonList } from '@ionic/vue'
 import { mapGetters, mapState } from 'vuex'
-import ExploreContainer from '@/components/ExploreContainer.vue'
 import RewardItem from '@/components/RewardItem.vue'
 
 export default defineComponent({
   name: 'RewardsListPage',
-  components: { ExploreContainer, IonHeader, IonToolbar, IonTitle, IonContent, IonPage, RewardItem },
+  components: { IonHeader, IonToolbar, IonTitle, IonContent, IonList, IonPage, RewardItem },
   computed: {
-    ...mapGetters([
-      'rewards'
-    ]),
-    ...mapState('rewards', ['rewards']),
-  },
-  mounted() {
-    this.$store.dispatch('rewards/loadRewards')
+    ...mapState('rewards', ['rewards'])
   }
 })
 </script>

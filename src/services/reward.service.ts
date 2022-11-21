@@ -2,15 +2,17 @@ import { ApiService } from '@/services/api.service'
 
 const RewardService = {
 
-  addReward: async (data: Record<string, any>) => await ApiService.post('addReward', data),
+  createReward: async (data: Record<string, any>) => await ApiService.post({ resource: 'reward', body: data }),
 
-  // TODO: Figure out implementation
-  // deleteReward: async () => {},
+  deleteReward: async (id: string) => await ApiService.delete({ resource: 'reward', params: { id } }),
 
-  loadRewards: async () => await ApiService.get('getRewards'),
+  loadRewards: async () => await ApiService.get({ resource: 'rewards' }),
 
-  updateReward: async (data: Record<string, any>) => await ApiService.put('updateReward', data),
-
+  updateReward: async (id: string, data: Record<string, any>) => await ApiService.put({ 
+    resource: 'reward', 
+    params: { id }, 
+    body: data
+  }),
 }
 
 export { RewardService }

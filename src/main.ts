@@ -27,7 +27,9 @@ import './theme/variables.css';
 import { ApiService } from './services'
 import * as dotenv from 'dotenv'
 
-ApiService.init(process.env.VUE_APP_ROOT_API)
+dotenv.config()
+
+ApiService.init(process.env.API_ENDPOINT)
 
 const app = createApp(App)
   .use(IonicVue)

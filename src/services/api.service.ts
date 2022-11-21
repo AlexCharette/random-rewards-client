@@ -4,14 +4,13 @@ const ApiService = {
 
   init: (baseUrl: string | undefined) => axios.defaults.baseURL = baseUrl,
 
-  delete: (resource: any) => axios.delete(resource),
+  delete: ({ resource, params = null }: any = {}) => axios.delete(resource, { params: params }),
 
-  get: (resource: any) => axios.get(resource),
+  get: ({ resource, params = null }: any = {}) => axios.get(resource, { params: params }),
 
-  post: (resource: any, data: any) => axios.post(resource, data),
+  post: ({ resource, params = null, body }: any = {}) => axios.post(resource, body, { params: params }),
 
-  put: (resource: any, data: any) => axios.put(resource, data)
-
+  put: ({ resource, params = null, body }: any = {}) => axios.put(resource, body, { params: params }),
 }
 
 export { ApiService }

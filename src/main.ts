@@ -25,11 +25,12 @@ import '@ionic/vue/css/display.css';
 import './theme/variables.css';
 
 import { ApiService } from './services'
-import * as dotenv from 'dotenv'
+// import * as dotenv from 'dotenv'
 
-dotenv.config()
+// dotenv.config()
 
-ApiService.init(process.env.API_ENDPOINT)
+// ApiService.init(process.env.API_ENDPOINT)
+ApiService.init("http://localhost:8080/")
 
 const app = createApp(App)
   .use(IonicVue)

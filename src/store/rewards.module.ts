@@ -10,8 +10,11 @@ const getters = {
 
 const actions = {
   async loadRewards({ commit }: { commit: any}) {
-    const rewards = await RewardService.loadRewards()
-    commit('setRewards', rewards.data)
+    const result = await RewardService.loadRewards()
+    const rewards = JSON.parse(result.data)
+    console.log('Loaded rewards')
+    console.log(rewards)
+    commit('setRewards', rewards)
   }
 }
 

@@ -16,24 +16,44 @@
       <ion-list>
         <reward-item 
           v-for="reward in rewards"
-          :key="reward.name"
-          :name="reward.name"
-          :icon="reward.icon"
+          :key="reward.Name"
+          :name="reward.Name"
+          :icon="reward.Icon"
         />
       </ion-list>
+
+      <ion-fab
+        vertical="bottom"
+        horizontal="end"
+        slot="fixed"
+      >
+        <ion-fab-button>
+          <ion-icon name="add-circle-outline"></ion-icon>
+        </ion-fab-button>
+      </ion-fab>
     </ion-content>
   </ion-page>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonList } from '@ionic/vue'
+import { 
+  IonFab, 
+  IonFabButton, 
+  IonIcon, 
+  IonPage, 
+  IonHeader, 
+  IonToolbar, 
+  IonTitle, 
+  IonContent, 
+  IonList 
+} from '@ionic/vue'
 import { mapGetters, mapState } from 'vuex'
 import RewardItem from '@/components/RewardItem.vue'
 
 export default defineComponent({
   name: 'RewardsListPage',
-  components: { IonHeader, IonToolbar, IonTitle, IonContent, IonList, IonPage, RewardItem },
+  components: { IonFab, IonFabButton, IonHeader, IonIcon, IonToolbar, IonTitle, IonContent, IonList, IonPage, RewardItem },
   computed: {
     ...mapState('rewards', ['rewards'])
   }

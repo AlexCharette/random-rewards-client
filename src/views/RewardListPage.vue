@@ -27,7 +27,9 @@
         horizontal="end"
         slot="fixed"
       >
-        <ion-fab-button>
+        <ion-fab-button
+          href="/addreward"
+        >
           <ion-icon name="add-circle-outline"></ion-icon>
         </ion-fab-button>
       </ion-fab>

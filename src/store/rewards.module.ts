@@ -11,10 +11,25 @@ const getters = {
 const actions = {
   async loadRewards({ commit }: { commit: any}) {
     const result = await RewardService.loadRewards()
-    const rewards = JSON.parse(result.data)
-    console.log('Loaded rewards')
-    console.log(rewards)
-    commit('setRewards', rewards)
+      .then((response: any) => {
+        const rewards = JSON.parse(response.data)
+        console.log('Loaded rewards')
+        console.log(rewards)
+        commit('setRewards', rewards)
+      })
+      .catch((error: any) => console.log(error))
+  },
+
+  async createReward({ dispatch, commit }: { dispatch: any, commit: any}, data: any) {
+    await RewardService.createReward(data.body)
+      .then(async (response: any) => await dispatch('loadRewards'))
+      .catch((error: any) => console.log(error))
+  },
+
+  async updateReward({ dispatch, commit }: { dispatch: any, commit: any}, data: any) {
+    await RewardService.updateReward(data.id, data.body)
+      .then(async (response: any) => await dispatch('loadRewards'))
+      .catch((error: any) => console.log(error))
   }
 }
 

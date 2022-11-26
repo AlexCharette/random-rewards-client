@@ -22,9 +22,13 @@ const routes: Array<RouteRecordRaw> = [
       {
         path: 'rewards',
         component: () => import('@/views/RewardListPage.vue')
-      }
+      },
     ]
-  }
+  },
+  {
+    path: '/addreward',
+    component: () => import('@/views/AddRewardPage.vue')
+  },
 ]
 
 const router = createRouter({
